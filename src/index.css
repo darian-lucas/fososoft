@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Epilogue";
+  src: url("/src/assets/fonts/Epilogue-Regular.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-epilogue: "Epilogue", sans-serif;
+  --color-brand-500: #0373f3;
+  --color-brand-600: #025FCA;
+  --color-brand-50: #E6F1FF;
+  --color-brand-100:#CDE4FE;
+  --color-black: #1c252e;
+  --color-primary: #1C252E;
+  --color-secondary: #637381;
+  --color-disabled:#919EAB;
+  --color-grey-200:#F4F6F8;
+}
+
+body {
+  font-family: var(--font-epilogue);
+}
