@@ -6,19 +6,35 @@ export default function HeaderCategoryMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
+  const [headerBottom, setHeaderBottom] = useState(211);
+
   useEffect(() => {
-    if (!isMenuOpen) return;
-    const handleScroll = () => setIsMenuOpen(false);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMenuOpen]);
+    const updateHeaderPosition = () => {
+      const headerElement = document.querySelector(".header");
+
+      if (headerElement) {
+        const rect = headerElement.getBoundingClientRect();
+        setHeaderBottom(Math.max(0, rect.bottom));
+      }
+    };
+    window.addEventListener("scroll", updateHeaderPosition);
+    window.addEventListener("resize", updateHeaderPosition);
+    updateHeaderPosition();
+    return () => {
+      window.removeEventListener("scroll", updateHeaderPosition);
+      window.removeEventListener("resize", updateHeaderPosition);
+    };
+  }, []);
 
   return (
     <>
       {isMenuOpen && (
         <div
-          className="absolute left-0 right-0 bg-[#787e8d] bg-opacity-10 z-40"
-          style={{ top: "211px", bottom: 0 }}
+          className="fixed left-0 right-0 bottom-0 z-40"
+          style={{
+            top: `${headerBottom}px`,
+            background: "rgba(103, 114, 139, 0.8)",
+          }}
           onClick={() => setIsMenuOpen(false)}
         ></div>
       )}
