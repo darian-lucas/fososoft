@@ -34,7 +34,9 @@ export default function HeaderCategoryMenu() {
           <div className="flex items-center gap-x-8">
             <span className="capitalize text-white">Danh mục sản phẩm</span>
             <img
-              className="invert brightness-0"
+              className={`invert brightness-0 transition-transform duration-300 ${
+                isMenuOpen ? "rotate-180" : ""
+              }`}
               src="/images/arrow-down.svg"
               alt=""
             />
