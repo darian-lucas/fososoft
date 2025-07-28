@@ -66,14 +66,14 @@ const Header = () => {
             />
             <span>VI</span>
           </div>
-          <div className="header__cart flex items-center gap-x-2 relative">
+          <div className="header__cart flex items-center gap-x-2 relative cursor-pointer">
             <img src="/images/cart.svg" alt="" />
             <span className="w-5 h-5 text-xs flex items-center justify-center bg-[#FF5630] absolute rounded-full text-white -top-3 right-16 ">
               12
             </span>
             <span>Giỏ hàng</span>
           </div>
-          <div className="header__user flex items-center gap-x-2">
+          <div className="header__user flex items-center gap-x-2 cursor-pointer">
             <img src="/images/user.svg" alt="" />
             <span>Tài khoản</span>
           </div>
